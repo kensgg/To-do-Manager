@@ -1,5 +1,3 @@
-![To Do List Manager Icon](https://thumbs.dreamstime.com/b/blue-to-do-list-planning-icon-isolated-blue-background-minimalism-concept-d-render-illustration-blue-to-do-list-planning-423836147.jpg)
-
 # To Do List Manager
 
 Aplicación web de gestión de tareas desarrollada con HTML5, CSS3 y JavaScript (Vanilla).  
