@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="images/hole.png">
+    <title>To Do List Manager</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <!-- Formulario para agregar tareas -->
+            <section class="todo-form-container">
+                <h2>To Do List</h2>
+                
+                <form id="todo-form">
+                    <div class="form-group">
+                        <label for="task-name">Task</label>
+                        <input 
+                            type="text" 
+                            id="task-name" 
+                            placeholder="Task Name"
+                            autocomplete="off"
+                        >
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="task-description">Description</label>
+                        <textarea 
+                            id="task-description" 
+                            placeholder="Task Description Optional"
+                            rows="2"
+                        ></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="task-category">Category</label>
+                        <select id="task-category">
+                            <option value="">Select Category</option>
+                            <option value="Work">Work</option>
+                            <option value="Personal">Personal</option>
+                            <option value="Study">Study</option>
+                            <option value="Health">Health</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+                    
+                    <button type="submit" class="btn-add">Add</button>
+                </form>
+            </section>
+            
+            <!-- Timer -->
+            <section class="timer-container">
+                <h2>Timer</h2>
+                <div class="timer-display" id="timer-display">00:20:00</div>
+                <div class="timer-controls" id="timer-controls">
+                    <button class="timer-btn" id="play-btn" aria-label="Play">
+                        <img src="images/play.png" alt="Play" class="timer-icon">
+                    </button>
+                    <button class="timer-btn" id="pause-btn" aria-label="Pause">
+                        <img src="images/stop.png" alt="Pause" class="timer-icon">
+                    </button>
+                    <button class="timer-btn" id="reset-btn" aria-label="Reset">
+                        <img src="images/restart.png" alt="Reset" class="timer-icon">
+                    </button>
+                </div>
+            </section>
+        </aside>
+        
+        <!-- Main -->
+        <main class="main-content">
+            <!-- Header  saludo -->
+            <header class="app-header">
+                <img src="images/hole.png" alt="Icon" class="greeting-icon">
+                <h1 id="greeting">Good Morning Gerardo</h1>
+            </header>
+            
+            <!-- Contenedor de tableros -->
+            <div class="boards-container">
+                <!-- Tablero TDo -->
+                <section class="board todo-board">
+                    <h2 class="board-title">To do</h2>
+                    <div class="tasks-list" id="todo-list">
+                    </div>
+                </section>
+                
+                <!-- Tablero Completed -->
+                <section class="board completed-board">
+                    <h2 class="board-title">Completed</h2>
+                    <div class="tasks-list" id="completed-list">
+                    </div>
+                </section>
+            </div>
+        </main>
+    </div>
+    
+    <script src="js/app.js"></script>
+</body>
+</html>
