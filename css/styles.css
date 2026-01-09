@@ -1,0 +1,376 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #3A4049;
+    color: #000000;
+    min-height: 100vh;
+}
+
+/* Contenedor principal */
+.app-container {
+    display: flex;
+    height: 100vh;
+    gap: 15px;
+    padding: 15px;
+}
+
+/* Sidebar */
+.sidebar {
+    width: 240px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    flex-shrink: 0;
+    height: 100%;
+}
+
+/* Formulario de tareas */
+.todo-form-container {
+    background-color: #F0EDE5;
+    border-radius: 15px;
+    padding: 20px;
+    flex: 1;
+}
+
+.todo-form-container h2 {
+    font-size: 20px;
+    margin-bottom: 15px;
+    color: #000000;
+}
+
+.form-group {
+    margin-bottom: 12px;
+}
+
+.form-group label {
+    display: block;
+    font-size: 13px;
+    font-weight: 600;
+    margin-bottom: 6px;
+    color: #000000;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 8px;
+    background-color: #FFFFFF;
+    font-size: 13px;
+    font-family: inherit;
+    color: #000000;
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+    color: #999999;
+}
+
+.form-group textarea {
+    resize: none;
+    rows: 2;
+}
+
+.btn-add {
+    width: 100%;
+    padding: 12px;
+    background-color: #D8DFE9;
+    border: none;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #000000;
+    cursor: pointer;
+    transition: opacity 0.2s;
+}
+
+.btn-add:hover {
+    opacity: 0.8;
+}
+
+/* Timer */
+.timer-container {
+    background-color: #F0EDE5;
+    border-radius: 15px;
+    padding: 20px;
+    text-align: center;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.timer-container h2 {
+    font-size: 20px;
+    margin-bottom: 15px;
+    color: #000000;
+}
+
+.timer-display {
+    font-size: 40px;
+    font-weight: bold;
+    color: #000000;
+    margin-bottom: 15px;
+    font-family: 'Courier New', monospace;
+}
+
+.timer-controls {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.timer-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    transition: opacity 0.3s, transform 0.1s;
+    padding: 5px;
+}
+
+.timer-icon {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+}
+
+.timer-btn:hover {
+    transform: scale(1.1);
+}
+
+.timer-btn:active {
+    transform: scale(0.95);
+}
+
+/* Main */
+.main-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+}
+
+/* Header  saludo */
+.app-header {
+    background-color: #F0EDE5;
+    border-radius: 15px;
+    padding: 20px 30px;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.greeting-icon {
+    width: 30px;
+    height: 30px;
+    object-fit: contain;
+}
+
+.app-header h1 {
+    font-size: 24px;
+    color: #000000;
+    font-weight: 600;
+}
+
+/* Contenedor  tableros */
+.boards-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    flex: 1;
+    min-height: 0;
+}
+
+/* Tableros */
+.board {
+    background-color: #5A6270;
+    border-radius: 15px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
+}
+
+.board-title {
+    color: #FFFFFF;
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+/* Lista de tareas */
+.tasks-list {
+    flex: 1;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding-right: 5px;
+}
+
+/* Scrollbar */
+.tasks-list::-webkit-scrollbar {
+    width: 8px;
+}
+
+.tasks-list::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+}
+
+.tasks-list::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 10px;
+}
+
+.tasks-list::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.5);
+}
+
+/* Tarjeta  tarea */
+.task-card {
+    background-color: #ECBEBE;
+    border-radius: 12px;
+    padding: 15px;
+    margin-bottom: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    position: relative;
+    transition: transform 0.2s;
+}
+
+.task-card:hover {
+    transform: translateY(-2px);
+}
+
+.task-card.completed {
+    background-color: #CEECBE;
+}
+
+/* Header tarjeta */
+.task-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.task-name {
+    font-size: 14px;
+    font-weight: 600;
+    color: #000000;
+    flex: 1;
+}
+
+.task-category {
+    font-size: 12px;
+    color: #000000;
+    font-weight: 500;
+}
+
+/* DEscripcion */
+.task-description {
+    font-size: 12px;
+    color: #000000;
+    line-height: 1.4;
+}
+
+/* Acciones */
+.task-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 8px;
+    margin-top: 3px;
+}
+
+.task-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 3px;
+    transition: transform 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.task-icon {
+    width: 20px;
+    height: 20px;
+    object-fit: contain;
+}
+
+.task-btn:hover {
+    transform: scale(1.1);
+}
+
+.task-btn:active {
+    transform: scale(0.95);
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    body {
+        overflow-y: auto;
+        height: auto;
+    }
+    
+    .app-container {
+        flex-direction: column;
+        overflow-y: visible;
+        height: auto;
+        min-height: 100vh;
+    }
+    
+    .sidebar {
+        width: 100%;
+        flex-direction: row;
+        height: auto;
+        order: 2;
+    }
+    
+    .main-content {
+        height: auto;
+        order: 1;
+    }
+    
+    .app-header {
+        order: 1;
+    }
+    
+    .boards-container {
+        grid-template-columns: 1fr;
+        height: auto;
+        order: 2;
+    }
+    
+    .todo-form-container,
+    .timer-container {
+        flex: 1;
+    }
+    
+    .board {
+        min-height: 400px;
+    }
+}
+
+@media (max-width: 768px) {
+    .sidebar {
+        flex-direction: column;
+    }
+    
+    .app-header h1 {
+        font-size: 20px;
+    }
+    
+    .timer-display {
+        font-size: 36px;
+    }
+}
